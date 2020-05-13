@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <span>输入数字:</span>
+        <input type="number" id="num" max="50" min="0">
+        <p><span id="msg">**</span>的阶乘为: <span id="result">**</span> </p>
+
+        <script>
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+            function operation(fyl_number) {
+                if(fyl_number == 1) {
+                    return 1;
+                }
+                return fyl_number * operation(fyl_number - 1);
+            }
+
+            $('num').onchange = function() {
+                let fyl_result = parseInt($('num').value);
+                $('msg').innerHTML = fyl_result;
+                $('result').innerHTML = operation(fyl_result);
+            }
+        </script>
+    </body>
+</html>

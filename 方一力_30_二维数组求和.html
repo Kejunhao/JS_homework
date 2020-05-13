@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <p id="msg"></p>
+
+        <script>
+            document.write("二维数组:[[12,59,66],[100,88]]")
+            let fyl_two_dimension_array = [
+                [12,59,66],
+                [100,88]
+            ];
+            let fyl_result = 0;
+
+            for(let i = 0; i < fyl_two_dimension_array.length; i++) {
+                for(let j = 0; j < fyl_two_dimension_array[i].length; j++) {
+                    fyl_result += fyl_two_dimension_array[i][j];
+                }
+            }
+
+            console.log(fyl_result);
+        </script>
+    </body>
+</html>

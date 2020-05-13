@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <style>
+            .name {
+                float: left;
+                margin-left: 1em;
+                background-color: royalblue;
+                color: white;
+                width: 80px;
+                height: 30px;
+                text-align: center;
+                margin-top: 1em;
+                border: 1px solid white;
+                border-radius: 30px;
+                padding-top: 5px;
+            }
+            button {
+                margin: 0 auto;
+                margin-top: 5em;
+                border: 1px solid white;
+                border-radius: 10px;
+                width: 100px;
+                height: 40px;
+            }
+            button:hover {
+                background-color: orange;
+                color: white;
+            }
+            .checked {
+                background-color: orange;
+            }
+        </style>
+
+        <button type="button" onclick="randomTake()">随机抽取</button>
+
+        <script>
+            const fyl_list = [
+                '二愣子', '王麻子', '暴发户', '朱一旦', '十佳员工', '劳力士', '王布斯'
+            ];
+            let fyl_timer;
+            let fyl_i = 0;
+            let fyl_indexOld = null;
+
+            for(let i in fyl_list) {
+                document.write("<div class='name'>" + fyl_list[i] + "</div>");
+            }
+
+
+            function randomTake() {
+                clearInterval(fyl_timer);
+                fyl_i = 0;
+                fyl_timer = setInterval(show, 200);
+            }
+
+            function show() {
+                let fyl_random = Math.floor(Math.random() * fyl_list.length);
+                fyl_indexOld  !== null ? getChooseMan(fyl_indexOld).classList.remove('checked') : '';
+                getChooseMan(fyl_random).classList.add('checked');
+                fyl_indexOld = fyl_random;
+                fyl_i++;
+
+                if(fyl_i == 10) {
+                    clearInterval(fyl_timer);
+                    fyl_i = 0;
+                }
+            }
+
+            function getChooseMan(index) {
+                return document.getElementsByClassName('name')[index];
+            }
+        </script>
+    </body>
+</html>

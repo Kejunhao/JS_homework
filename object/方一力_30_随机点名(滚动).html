@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <style>
+        body {
+            text-align: center;
+        }
+        .box {
+            margin: 0 auto;
+            background-color: red;
+            color: white;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+
+    <p>Congratulations to</p>
+    <h1 id="name" class="box"></h1>
+    <p>Get one question answering opportunity.</p>
+    <button type="button" id="btn_start">TAKE</button>
+    <button type="button" id="btn_stop">STOP</button>
+
+    <script>
+        const NAME = "艾斯奥特曼,雷欧奥特曼,迪迦奥特曼,欧布奥特曼,戴拿奥特曼,奥特之父".split(',');
+        let temp = [];
+        
+        const Random = {
+            start : function() {
+                timer = setInterval(function() {
+                    random = Math.floor(Math.random() * NAME.length);
+                    $('name').innerHTML = NAME[random];
+                },50);
+            },
+            stop : function() {
+                clearInterval(timer);
+            }
+        };
+
+        $('btn_start').onclick = function() {
+            Random.start();
+        };
+
+        $('btn_stop').onclick = function() {
+            Random.stop();
+            temp.push($('name').innerHTML);
+        };
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>

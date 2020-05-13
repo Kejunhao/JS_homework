@@ -1,0 +1,124 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <input type="text" id="num1">
+        <input type="text" id="num2">
+        <button type="button" onclick="change()">exchange</button>
+        <span id="sa"></span>
+        <span id="sd"></span>
+        <br /><br />
+
+        <script>
+            function change() {
+                let a = document.getElementById("num1").value;
+                let b = document.getElementById("num2").value;
+                [b,a] = [a,b];
+                document.getElementById("sa").innerHTML = a;
+                document.getElementById("sd").innerHTML = b;
+            }
+
+        </script>
+
+        <script>
+            function check(J, S) {
+                S = S.split("");
+                console.table(S);
+                J = J.split("");
+                let result = 0;
+                console.log(J.indexOf(S[0]));
+                for(let i in S) {
+                    if(J.indexOf(S[i]) != -1) {
+                        result++;
+                    }
+                }
+                return result;
+            }
+            console.log(check("aA", "aAAbbbb"));
+
+            function number(numbers) {
+                [number_1, number_2] = numbers;
+                return [number_2, number_1];
+            }
+            console.log(number([1,2]));
+
+            function sum(n) {
+                let result = 0;
+                for(let i = 0; i <= n; i++) {
+                    result += i;
+                }
+                return result;
+            }
+            console.log(sum(3));
+
+            function sortNumber(a,b) {
+                return a - b
+            }
+
+            let arr = [10,1,5,27,98,111,7,8,9];
+            console.log("排序前:" + arr);
+            console.log(arr.sort(sortNumber));
+            for(let i = 0; i < arr.length-1; i++) {
+                for(let j = 0; j < arr.length - 1; j++) {
+                    if(arr[j] > arr[j + 1]) {
+                        let temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                    }
+                }
+            }
+            console.log("排序后的数组为: " + arr);
+
+            function only(astr) {
+                let temp = astr.length;
+                astr = astr.split("");
+                let s = Array.from(new Set(astr));
+                console.log(s, temp);
+                return (s.length != temp) ? false : true;
+            }
+            console.log(only("leetcode"));
+
+            function larger(nums) {
+                let result = "";
+                let result1 = "";
+                for(let i in nums) {
+                    result = result + nums[i];
+                }
+                for(let i = nums.length - 1; i >= 0; i--) {
+                    result1 = result1 + nums[i];
+                }
+                return (result > result1) ? result : result1;
+            }
+            console.log(larger([10,2]));
+
+            function maxValue(n) {
+                let max_value = 0;
+                for(let i in n) {
+                    if(n[i] > max_value) {
+                        max_value = n[i];
+                    }
+                }
+                return max_value;
+            }
+            console.log(maxValue([1,2,3,4,5,100]));
+
+            function moveZero(nums) {
+                let j = 0;
+                for(let i = 0; i < nums.length; i++) {
+                    if(nums[i] == 0) {
+                        nums.splice(i,1);
+                        i--;
+                        j++;
+                    }
+                }
+                for(let i = 0; i < j; i++) {
+                    nums.push(0);
+                }
+                return nums;
+            }
+            console.log(moveZero([1,0,0,1]));
+        </script>
+    </body>
+</html>

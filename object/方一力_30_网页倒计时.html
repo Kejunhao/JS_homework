@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <style>
+        body {
+            text-align: center;
+            padding-top: 25%;
+        }
+        .time {
+            text-align: center;
+            margin: 0 auto;
+            width: 150px;
+            height: 150px;
+            background-color: pink;
+            font-size: 100px;
+            padding-left: 20px;
+        }
+    </style>
+
+    <button type="button" id="btn_start" style="margin-right: 4em;">START</button>
+    <button type="button" id="btn_stop">STOP</button>
+    <br />
+
+    <input type="number" class="time" value="10" id="num">
+
+    <script>
+        const TIME = {
+            start : function() {
+                timer = setInterval(function() {
+                    if($('num').value != 0) {
+                        $('num').value -= 1;
+                    } else {
+                        clearInterval(timer);
+                    }
+                },1000);
+            },
+            stop : function() {
+                clearInterval(timer);
+            }
+        };
+
+        $('btn_start').onclick = function() {
+            TIME.start();
+        }
+
+        $('btn_stop').onclick = function() {
+            TIME.stop();
+        }
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>

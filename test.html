@@ -1,0 +1,192 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <script>
+            let arr = [1,2,3,4,5];
+            if(arr.indexOf(5,arr) == -1) {
+                console.log("shit")
+            }
+
+            let s = 'test';
+            s.length = 4;
+            let r = s.length;
+            console.log(r);
+
+            function div(option = {}) {
+                let div = document.createElement("div");
+                div.style.width = option.width ? option.width : "100px";
+                div.style.height = option.height ? option.height : "100px";
+                div.style.backgroundColor = option.color ? option.color : "blue";
+                document.body.appendChild(div);
+            }
+            div({width : "200px", height : "200px", color : "royalblue"});
+
+            let list = ["张三", "李四", "王五"];
+            let random = Math.floor(Math.random() * 3);
+            console.log(list[random], random);
+
+            let new_arr = [...arr, ...list];
+            console.table(new_arr);
+
+            for(let i in arr) {
+                list.push(arr[i]);
+            }
+            console.table(list);
+
+            let [shit, ...args] = ["shit", 1,2,3,4,5];
+            console.log(shit, args);
+            let [name, year] = ["张三", 2010];
+            console.log(name, year);
+
+            let test1 = [1,2,3];
+            let test2 = [2,3,4];
+            test1.push(...test2);
+            console.table(test1);
+
+            let obj = {};
+            obj.output = function (name) {
+                console.log("fuck you, " + name);
+            };
+            obj.output("Henry");
+
+            function array(A) {
+                let result = [];
+                for(let i in A) {
+                    if(A[i] % 2 == 0) {
+                        result.push(A[i]);
+                    }
+                }
+                for(let i in A) {
+                    if(A[i] % 2 != 0) {
+                        result.push(A[i]);
+                    }
+                }
+                return result;
+            }
+            console.log(array([3,1,2,4]));
+
+            /*
+            在一圆形游泳池周围建一圆形过道，并在过道周围安上栅栏。栅栏每米价格为35元，过道每平方米价格为20元。
+            过道宽度为3米。游泳池半径有键盘输入。求过道和栅栏的造价 
+            */
+            function pool(range) {
+                const fence = 35;
+                const row = 20;
+                const row_width = 3;
+                const PI = 3.14;
+
+                const area = PI * Math.pow(range,2);
+                const big_area = PI * Math.pow(range+3, 2);
+                const per = 2 * PI * range;
+                const big_per = 2 * PI * (range + 3);
+
+                const fence_price = big_per * fence;
+                const row_price = (big_area - area) * row;
+                return "栅栏:" + fence_price + "过道:" + row_price;
+            }
+            console.log(pool(2));
+         </script>
+         <style>
+             .light {
+                 border-radius: 20px;
+                 background-color: black;
+                 width: 525px;
+                 height: 40px;
+             }
+             .cir {
+                 text-align: center;
+                 border-radius: 30px;
+                 width: 20px;
+                 height: 20px;
+                 float: left;
+                 margin-top: 5px;
+                 margin-left: 9px;
+                 background-color: white;
+             }
+         </style>
+
+         <br /> <br />
+         <div class="light" style="padding-left: 15px;">
+             <script>
+                 for(let i = 0; i <= 16; i++) {
+                    document.write("<div class='cir'></div>");
+                 }
+
+                 function pro(n) {
+                    n = String(n).split("");
+                    let add = 0;
+                    let ji = 1;
+                    for(let i in n) {
+                        n[i] = parseInt(n[i]);
+                        add += n[i];
+                        ji *= n[i];
+                    }
+                    return ji - add;
+                }
+                console.log(pro(234));
+
+                function test() {
+                    const five = 5;
+                }
+                test();
+                console.log('miNI'.toUpperCase());
+                console.log('miNI'.toLowerCase());
+
+                console.log([2,3,4,5].reduce(function(total,item){return total+item;}));
+
+                var i = 24;
+                for(let i=0;i<10;++i){}
+                console.log(i);
+
+                function fn(x, y){
+  return (++x) + (y++);
+}
+console.log(fn(5,3));
+
+function factorial(n) {  // 定义回调函数
+  if (n == 1) {
+ return 1;        // 递归出口
+  }
+  return n * factorial(n - 1);
+}
+console.log(factorial(4));
+
+var i = 24;
+for(let i=0;i<10;++i){}
+console.log(i);
+
+console.log(isNaN({}));
+console.log(isNaN(0));
+console.log(isNaN(undefined));
+console.log(isNaN(null));
+
+//sa
+/**/
+
+arr=[1,2];
+arr = arr.fill(['a','b']);
+console.log(arr);
+
+let test_name = "shit";
+function damn() {
+    console.log(test_name);
+    
+}
+damn();
+
+alert("shit");
+
+let age = gender = "male";
+console.log(age, gender);
+
+console.log("22 == 22");
+
+
+
+             </script>
+         </div>
+    </body>
+</html>

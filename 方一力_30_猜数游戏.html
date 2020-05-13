@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <style>
+            body {background-color: #FFFAF0;}
+            #guess {
+                margin: 0 auto;
+                margin-top: 15%;
+                width: 350px;
+                height: 250px;
+                background-color: royalblue;
+                padding-top: 50px;
+                color: whitesmoke;
+                text-align: center;
+                border: 2px solid white;
+                border-radius: 30px;
+            }
+            input{border: 1px solid white;
+                border-radius: 25px;
+                width: 200px;padding-left: 15px;
+                }
+        </style>
+
+        <div id="guess">
+            <p>猜数游戏:</p>
+            <input type="number" placeholder="1-100间的整数" name="guess_num">
+            <p id="msg"></p>
+        </div>
+
+        <script>
+            const fyl_random_num = Math.floor(Math.random() * 100);
+            const fyl_msg = document.querySelector("#msg");
+            let fyl_msg_content = "";
+            console.log(fyl_random_num);
+            document.querySelector("[name = 'guess_num']")
+            .addEventListener('keyup', function() {
+                let fyl_num = this.value;
+                if(fyl_num > fyl_random_num) {
+                    fyl_msg_content = "猜的有些大";
+                } else if(fyl_num < fyl_random_num) {
+                    fyl_msg_content = "猜的有些小";
+                } else {
+                    fyl_msg_content = "恭喜你, 猜对了";
+                }
+                fyl_msg.innerHTML = fyl_msg_content;
+            })
+        </script>
+    </body>
+</html>

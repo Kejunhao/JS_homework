@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <span>输入数值:</span>
+        <input type="number" id="num" onchange="fibonacci(this.value)">
+        <br />
+        <span>斐波那契数列:</span><br />
+        <textarea id="output" cols="30" rows="30"></textarea>
+
+        <script>
+            function fibonacci(in_data) {
+                let fyl_c = 0, fyl_a = 0, fyl_b = 1;
+                let fyl_output = document.querySelector("#output");
+
+                fyl_output.innerHTML = ""; //清空textarea中的值再写入
+
+                fyl_output.innerHTML = fyl_output.value + "第" + fyl_a + "项:" + fyl_c + "\n";
+                for(let i = 0; i < in_data; i++) {
+                    fyl_output.innerHTML = fyl_output.value + "第" + (i + 1) + "项:" + fyl_b + "\n";
+                    fyl_c = fyl_a + fyl_b;
+                    fyl_a = fyl_b;
+                    fyl_b = fyl_c;
+                }
+            }
+        </script>
+    </body>
+</html>

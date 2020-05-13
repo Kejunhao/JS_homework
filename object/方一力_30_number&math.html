@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <button type="button" id="pi">Show PI</button>
+    <br />
+    <span>The property value of PI in the Math object is: </span>
+    <span id="pi_show"></span>
+
+    <br /> <br />
+    <button type="button" id="max">Show Max Number In JavaScript</button> <br />
+    <span>The max number in JavaScript is : </span>
+    <span id="max_show"></span>
+
+    <br /><br />
+    <button type="button" id="min">Show min number in JavaScript</button>
+    <br />
+    <span>The min number in JavaScript is : </span>
+    <span id="min_show"></span>
+
+    <br /> <br />
+    <button type="button" id="pi_fix">Show fixed PI</button>
+    <br />
+    <span>The fixed PI is : </span>
+    <span id="fixed_pi"></span>
+
+    <br /> <br />
+    <span>Please input number: </span>
+    <input type="text" id="arr">
+    <br />
+    <span>Max: </span> <span id="max_in_arr"></span>
+    <br />
+    <span>Min: </span> <span id="min_in_arr"></span>
+
+    <script>
+        const Show = {
+            PI : function() {
+                $('pi_show').innerHTML = Math.PI;
+            },
+            max : function() {
+                $('max_show').innerHTML = Number.MAX_VALUE;
+            },
+            min : function() {
+                $('min_show').innerHTML = Number.MIN_VALUE;
+            },
+            fixed_pi : function() {
+                $('fixed_pi').innerHTML = (Math.PI).toFixed(2);
+            },
+            arr : function() {
+                let arr = $('arr').value.split(',');
+                $('max_in_arr').innerHTML = Math.max.apply(null, arr);
+                $('min_in_arr').innerHTML = Math.min.apply(null, arr);
+            }
+        };
+
+        $('pi').onclick = function() {Show.PI();};
+        $('max').onclick = function() {Show.max();};
+        $('min').onclick = function() {Show.min();};
+        $('pi_fix').onclick = function() {Show.fixed_pi();};
+        $('arr').onchange = function() {Show.arr();};
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>

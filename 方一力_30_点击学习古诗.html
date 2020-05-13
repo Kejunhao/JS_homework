@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+<body onselectstart="return false" style="-moz-user-select: none;">
+        <style>
+            body {text-align: center;}
+            .poem {
+                margin: 0 auto;
+                background-color: royalblue;
+                padding-top: 2em;
+                width: 300px;
+                height: 200px;
+                padding-left: 10%;
+                padding-right: 10%;
+            }
+        </style>
+        <p>这是一首四言古诗, 请反复点击学习</p>
+        <div class="poem" onclick="poem()" id="div">
+            <h1 style="color: white;" id="poem_text"></h1>
+        </div>
+
+        <script>
+            let fyl_poem_arr = [
+                "点击学古诗",
+                "古人学问无遗力",
+                "少壮工夫老始成",
+                "纸上得来终觉浅",
+                "绝知此事要躬行"
+            ];
+            let fyl_div_color = ["orange", "royalblue", "red", "pink", "green"];
+            let fyl_i = 0;
+            let fyl_poem = document.querySelector("#poem_text");
+            let fyl_div = document.querySelector("#div");
+            fyl_poem.innerHTML = fyl_poem_arr[fyl_i];
+            
+            function poem() {
+                (fyl_i >= fyl_poem_arr.length - 1) ? fyl_i = 0 : fyl_i++;
+                fyl_div.style.backgroundColor = fyl_div_color[Math.floor(Math.random() * fyl_div_color.length)];
+                fyl_poem.innerHTML = fyl_poem_arr[fyl_i];
+            }
+        </script>
+    </body>
+</html>

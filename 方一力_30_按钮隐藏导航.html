@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力_30</title>
+    </head>
+    <body>
+        <style>
+            a{text-decoration: none; color: black;}
+            .bar {
+                text-align: center;
+                padding: 10px;
+                height: 20px;
+                width: 70px;
+                font-family: Microsoft Yahei;
+                float: left;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .bar:hover {
+                background-color: royalblue;color: white;
+            }
+        </style>
+
+        <button type="button" onclick="bar('block')">显示导航</button>
+        <button type="button" onclick="bar('none')">隐藏导航</button>
+        <br /><br />
+
+        <script>
+            const bar_arr = [
+                ["首页","/index.html"],
+                ["免费资源", "/free.html"],
+                ["课程中心", "/lesson.html"],
+                ["IT资源", "/it.html"],
+                ["学员故事", "/story.html"],
+                ["线上学院", "/online.html"],
+                ["技术社区", "/tech.html"]
+            ];
+
+            for(let i in bar_arr) {
+                document.write('<a href="' + bar_arr[i][1] + '" class="bar">' + bar_arr[i][0] + '</a>');
+            }
+
+            function bar(operation) {
+                const div = document.getElementsByClassName("bar");
+                for(let i in div) {
+                    div[i].style.display = operation;
+                }
+            }
+        </script>
+    </body>
+</html>

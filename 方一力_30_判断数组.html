@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+
+    <body>
+        <span>原始数据:</span>
+        <input type="text" value="2,3,5" id="source">
+        <br />
+        <span>新来数据:</span>
+        <span id="msg" style="color: red; font-size: 5px;"></span><br />
+        <input type="text" id="new" onchange="judge()">
+
+        <script>
+            function judge() {
+                let fyl_source = document.getElementById("source").value.split(',');
+                let fyl_arr = [];
+                let fyl_new = parseInt(document.getElementById("new").value);
+                
+                for(let i = 0; i < fyl_source.length; i++) {
+                    fyl_arr.push(parseInt(fyl_source[i]));
+                }
+                
+                if(fyl_arr.includes(fyl_new)) {
+                    document.querySelector("#msg").innerHTML = fyl_new + "已存在";
+                } else {
+                    fyl_arr.push(fyl_new);
+                }
+
+                document.getElementById("source").value = fyl_arr;
+            }
+        </script>
+    </body>
+</html>

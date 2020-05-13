@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力_30</title>
+    </head>
+    <body>
+        <style>
+            a{text-decoration: none; color: black;}
+            .bar {
+                text-align: center;
+                padding: 10px;
+                height: 20px;
+                width: 70px;
+                font-family: Microsoft Yahei;
+                float: left;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .bar:hover {
+                background-color: royalblue;
+            }
+        </style>
+
+        <script>
+            let bar = [
+                ["首页","/index.html"],
+                ["免费资源", "/free.html"],
+                ["课程中心", "/lesson.html"],
+                ["IT资源", "/it.html"],
+                ["学员故事", "/story.html"],
+                ["线上学院", "/online.html"],
+                ["技术社区", "/tech.html"]
+            ];
+
+            for(let i in bar) {
+                document.write('<a href="' + bar[i][1] + '" class="bar">' + bar[i][0] + '</a>');
+            }
+        </script>
+    </body>
+</html>

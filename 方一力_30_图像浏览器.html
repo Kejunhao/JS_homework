@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力_30</title>
+    </head>
+    <body>
+        <style>
+            .un_img {width: 100px;height: 100px;}
+            .do_img {width: 200px;height: 200px;}
+        </style>
+        <img id="pic" onclick="pic()" class="un_img">
+        <br />
+        <button type="button" onclick="change('-')">上一张</button>
+        <button type="button" onclick="change('+')">下一张</button>
+
+        <script>
+            var fyl_30_pic_array = [
+                    "img/qihoo.png",
+                    "img/qq.png",
+                    "img/sinaweibo.png",
+                    "img/user_photo.png",
+                    "img/weixin.png",
+                ];
+            let i = 0;
+            document.getElementById("pic").src = fyl_30_pic_array[0];
+            console.table(fyl_30_pic_array);
+
+            function change(operation) {
+                let fyl_30_pic = document.getElementById("pic");
+                fyl_30_pic.style.width = "100px";
+                fyl_30_pic.style.height = "100px";
+                switch(operation) {
+                    case '-':
+                        i == 0 ? i = fyl_30_pic_array.length - 1 : i--
+                        fyl_30_pic.src = fyl_30_pic_array[i];
+                        break;
+                    case '+':
+                        i == 4 ? i = 0 : i++
+                        fyl_30_pic.src = fyl_30_pic_array[i];
+                        break;
+                }
+            }
+
+            function pic() {
+                let fyl_30_pic_pro = document.getElementById("pic");
+                fyl_30_pic_pro.className == 'un_img' ? fyl_30_pic_pro.className = 'do_img':fyl_30_pic_pro.className = 'un_img'
+            }
+        </script>
+    </body>
+</html>

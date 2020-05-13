@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <style>
+            body {
+                text-align: center;
+            }
+            h1 {
+                color: red;
+                font-size: 50px;
+            }
+            .container {
+                padding-top: 20px;
+                border: 3px solid pink;
+                border-radius: 20px;
+                margin: 0 auto;
+                margin-top: 15%;
+                width: 400px;
+                height: 250px;
+            }
+            button {
+                width: 70px;
+                height: 30px;
+                background-color: orange;
+                border-radius: 15px;
+            }
+        </style>
+
+        <div class="container">
+            <span>恭喜</span>
+            <h1 id="name"></h1>
+            <p>被开除</p>
+            <button onclick="randomTake()" id="btn">点名</button>
+        </div>
+
+        <script>
+            const fyl_list = ['二愣子', '王麻子', '暴发户', '朱一旦', '十佳员工', '劳力士', '王布斯'];
+            const fyl_btn = document.getElementById("btn");
+            const fyl_div = document.getElementById("name");
+            
+            document.getElementById("name").innerHTML = fyl_list[0];
+            let fyl_i, fyl_btn_time = 0;
+            let fyl_timer;
+
+            function randomTake() {
+                fyl_btn.innerHTML = "停止";
+                fyl_btn_time++;
+                clearInterval(fyl_timer);
+                fyl_timer = setInterval("show()", 100);
+            }
+
+            function show() {
+                let fyl_random = Math.floor(Math.random() * fyl_list.length);
+
+                if(fyl_btn_time % 2 == 0) {
+                    clearInterval(fyl_timer);
+                    fyl_btn.innerHTML = "点名";
+                    fyl_i = 0;
+                }
+
+                fyl_div.innerHTML = fyl_list[fyl_random];
+                fyl_i++;
+            }
+        </script>
+    </body>
+</html>

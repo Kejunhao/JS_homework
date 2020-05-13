@@ -1,0 +1,88 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <select name="province" id="province"></select>
+        <select name="city" id="city"></select>
+        <select name="area" id="area"></select>
+
+        <script>
+            let obj = {
+                "黑龙江":[
+                    {
+                        "哈尔滨市" : [{"道里区" : 1, "南岗区" : 1, "香坊区" : 1}]
+                    }
+                ],
+                "江苏" : [
+                    {
+                        "苏州市" : [{"虎丘" : 1}],
+                        "南京市" : [{"玄武" : 1, "秦淮": 1, "建邺" : 1, "鼓楼" : 1, "浦口" : 1}],
+                    }
+                ],
+                "河北" : [
+                    {
+                        "秦皇岛" :[],
+                        "石家庄" :[{"海港" : 1, "山海关" : 1, "北戴河" : 1, "抚宁" : 1}],
+                        "张家口" :[]
+                    }
+                ]
+            };
+
+            //创建三个select选项的函数封装
+            function cityCreate() {
+                for(let i in obj[province.value][0]) {
+                    let node = document.createElement("option");
+                    node.innerHTML = i;
+                    city.appendChild(node);
+                }
+            }
+
+            function provinceCreate() {
+                for(let i in obj) {
+                    let node = document.createElement("option");
+                    node.innerHTML = i;
+                    province.appendChild(node);
+                }
+            }
+
+            function areaCreate() {
+                for(var i in obj[province.value][0][city.value][0]) {
+                    let node = document.createElement("option");
+                    node.innerHTML = i;
+                    area.appendChild(node);
+                }
+            }
+
+            //获取三个select
+            let province = document.getElementById("province");
+            let city = document.getElementById("city");
+            let area = document.getElementById("area");
+
+            //设置三个选项框的默认值
+            provinceCreate();
+            cityCreate();
+            areaCreate();
+
+            //设置省份变更操作
+            province.onchange = function() {
+                //先将市级和区级选项清空
+                city.innerHTML = "";
+                area.innerHTML = "";
+
+                //根据所选省份创建市级选项和区级选项
+                cityCreate();
+                areaCreate();
+            }
+
+            //设置市级选项变更操作
+            city.onchange = function() {
+                //先将区级选项清空
+                area.innerHTML = "";
+                //根据所选省份和市级创建区级选项
+                areaCreate();
+            }
+        </script>
+    </body>
+</html>

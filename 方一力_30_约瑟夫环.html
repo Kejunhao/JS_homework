@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30 </title>
+    </head>
+    <body>
+        <input type="number" placeholder="猴子总数" id="whole">
+        <input type="number" placeholder="踢出第几只猴子" id="which" name="monkey">
+        <button type="button" onclick="josephus()">选大王</button>
+
+        <script>
+            function josephus() {
+                let fyl_m = parseInt(document.getElementById("whole").value);
+                let fyl_n = parseInt(document.getElementById("which").value);
+                console.log(fyl_m, fyl_n)
+
+                let fyl_monkey = [];
+                for(let i = 0; i < fyl_m; i++) {
+                    fyl_monkey.push(i + 1);
+                }
+
+                let j = 0;
+                while(fyl_monkey.length > 1) {
+                    j++;
+                    fyl_head = fyl_monkey.shift();
+                    if(j % fyl_n != 0) {
+                        fyl_monkey.push(fyl_head);
+                    }
+                }
+                console.log(fyl_monkey[0]);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <script>
+        for(let i = 0; i <= 2; i++) {
+            document.write("<span>obj.</span><input type='text' id='name" + i + "'><span>=</span><input type='text' id='value" + i + "'><br />");
+        }
+        document.write("<button type='button' id='btn'>INSERT</button>");
+
+        function $(id) {return document.getElementById(id);}
+
+        let obj = {};
+        $('btn').onclick = function() {
+            for(let i = 0; i <= 2; i++) {
+                obj[$('name' + i).value] = $('value' + i).value;
+            }
+            console.log(obj);
+        }
+    </script>
+</body>
+</html>

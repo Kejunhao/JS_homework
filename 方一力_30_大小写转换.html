@@ -1,0 +1,31 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>方一力30</title>
+	</head>
+	<body>
+		<h1>大小写转换</h1>
+		<p>元数据:</p>
+		<input type="text" id="original">
+		<p>操作</p>
+		<button type="button" onclick="exchange('upper')">转大写</button>
+		<button type="button" onclick="exchange('lower')">转小写</button>
+		<p>新数据</p>
+		<input type="text" id="exchanged">
+
+		<script>
+			function exchange(operation) {
+				let original = document.querySelector("#original").value;
+				let exchanged = document.querySelector("#exchanged");
+				switch(operation) {
+					case 'upper':
+						exchanged.value = original.toUpperCase();
+						break;
+					case 'lower':
+						exchanged.value = original.toLowerCase();
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8"> 
+        <title>方一力30</title>
+    </head>
+    <body>
+        <img src="img/arguments.jpg">
+        <br />
+
+        <script>
+            function getSum() {
+                let result = 0;
+                for(let i in arguments) {result += arguments[i];}
+                return result;
+            }
+            document.write(getSum(1,2,3,4,5,6,7,8,9,10));
+        </script>
+    </body>
+</html>

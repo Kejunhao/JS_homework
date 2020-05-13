@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <span>输入第一个数字:</span>
+        <input type="number" id="num1">
+        <br />
+        <span>输入第二个数字:</span>
+        <input type="number" id="num2">
+        <br />
+
+        <button type="button" onclick="cal('+')">+</button>
+        <button type="button" onclick="cal('-')">-</button>
+        <button type="button" onclick="cal('*')">*</button>
+        <button type="button" onclick="cal('/')">/</button>
+
+        <br />
+        <p id="msg"></p>
+
+        <script>
+            function cal(operation) {
+                let num1 = parseInt(document.getElementById("num1").value);
+                let num2 = parseInt(document.getElementById("num2").value);
+                let result = 0;
+                switch(operation) {
+                    case '+':
+                        result = num1 + num2;
+                        break;
+                    case '-':
+                        result = num1 - num2;
+                        break;
+                    case '*':
+                        result = num1 * num2;
+                        break;
+                    case '/':
+                        result = num1 / num2;
+                        break;
+                    case '%':
+                        result = num1 % num2;
+                        break;
+                }
+
+                document.querySelector("#msg").innerHTML = result;
+            }
+        </script>
+    </body>
+</html>

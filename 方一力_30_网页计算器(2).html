@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <input type="number" placeholder="输入数字" id="num1">
+    <select id="operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" placeholder="输入数字" id="num2">
+    <span>=</span>
+    <input type="number" id="result" placeholder="结果">
+    <input type="button" value="点击计算" id="cal">
+
+    <script>
+        $('cal').onclick = function() {
+            $('result').value = Number(eval(Number($('num1').value) + $('operation').value + Number($('num2').value)));
+        }
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>

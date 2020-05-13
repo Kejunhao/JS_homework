@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <span>输入变量A:</span>
+        <input type="text" id="num0">
+        <br />
+        <span>输入变量B:</span>
+        <input type="number" id="num1">
+        <br />
+        <button type="button" onclick="exchange()">交换</button> <br />
+        <p id="msg"></p>
+
+        <script>
+            function exchange() {
+                let fyl_0 = document.querySelector("#num0").value;
+                let fyl_1 = document.querySelector("#num1").value;
+                [fyl_1, fyl_0] = [fyl_0, fyl_1];
+                document.querySelector("#msg").innerHTML = [fyl_0, fyl_1];
+            }
+        </script>
+    </body>
+</html>

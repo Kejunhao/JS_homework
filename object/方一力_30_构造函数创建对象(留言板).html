@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <span>姓名:</span>
+    <input type="text" id="name" placeholder="Name" value="Jack">
+    <br />
+    <span>地区:</span>
+    <input type="text" id="region" placeholder="Region" value="CN">
+    <br />
+    <span>内容:</span>
+    <input type="text" id="content" placeholder="Content" value="SHIT">
+    <button type="button" id="btn" onclick="output()">Insert</button>
+
+    <script>
+        let obj = {};
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        function create(name_value, region_value, content_value) {
+            obj.name = name_value;
+            obj.region = region_value;
+            obj.content = content_value;
+            console.log(obj.name + "(" + obj.region + ")" + "说:" + obj.content);
+        }
+
+        // $('btn').onclick = new create($('name').value, $("region").value, $('content').value);
+
+        function output() {
+            create($('name').value, $("region").value, $('content').value);
+        }
+    </script>
+</body>
+</html>

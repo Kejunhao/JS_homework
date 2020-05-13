@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <style>
+            body {
+                background-color: rgb(101, 111, 253);
+                font-family: Microsoft Yahei;
+                padding: 2em;
+            }
+            .list {
+                float: left;
+                height: 100px;
+                width: 100px;
+                text-align: center;
+                border: 1px solid rgb(101, 111, 253);
+                border-radius: 5px;
+                padding-top: 1em;
+                color: whitesmoke;
+                margin-left: 10px;
+                margin-top: 20px;
+            }
+            .list:hover {
+                border: 1px solid whitesmoke;
+                -moz-opacity:0.5;
+                opacity: 0.5;
+            }
+            .checked {
+                background-color: #fff;
+                color: black;
+            }
+            img {
+                border: 1px solid white;
+                border-radius: 30px;
+                width: 50px;
+                height: auto;
+            }
+            .footer {
+                position: absolute;
+                bottom: 0;
+                width: 90%;
+                height: 50px;
+                clear: both;
+                background-color: silver;
+            }
+            button {
+                width: 100px;
+                height: 30px;
+                margin-top: 10px;
+                margin-left: 50%;
+                border-radius: 5px;
+                background-color: rgb(94, 236, 81);
+            }
+            .msg {
+                float: right;
+                margin-right: 1em;
+                margin-top: 20px;
+                font-size: large;
+                color: blue;
+            }
+        </style>
+
+        <div class="footer">
+            <button onclick="randomTake()">点名</button>
+            <span class="msg">方一力制作</span>
+        </div>
+
+        <script>
+            const fyl_list = ['赛斯奥特曼', '戴拿奥特曼', '迪迦奥特曼', '欧布奥特曼', '捷德奥特曼', '维克特利奥特曼', '奥特之父', '奥特之母', '银河奥特曼', '佐菲奥特曼', '杰克奥特曼', '泰罗奥特曼', '雷欧奥特曼', '奥特之王', '乔尼亚斯奥特曼', '爱迪奥特曼', '贝斯奥特曼', '查克奥特曼', '葛雷奥特曼', '帕瓦特奥特曼', '盖亚奥特曼', '阿古茹奥特曼', '雷杰多奥特曼', '奈欧斯奥特曼', '杰诺奥特曼', '梦比优斯', '希卡利奥特曼', '赛罗奥特曼', '赛迦奥特曼', '银河奥特曼', '维克特利', '埃克斯奥特曼', '欧布奥特曼', '捷德奥特曼', '罗索奥特曼', '布鲁奥特曼'];
+            const fyl_name = document.getElementsByClassName("name");
+            const fyl_pic = document.getElementsByClassName("pic");
+            const fyl_div = document.getElementsByClassName("list");
+            let fyl_i = 0;
+            let fyl_timer;
+            let fyl_old = null;
+
+            for(let i in fyl_list) {
+                document.write("<div class='list'><img src='img/qq.png' class='pic'><p class='name'>" + fyl_list[i] + "</p></div>");
+            }
+
+            function randomTake() {
+                fyl_timer = setInterval("show()", 100);
+            }
+
+            function show() {
+                let fyl_random = Math.floor(Math.random() * fyl_list.length);
+
+                if(fyl_old != null) {
+                    fyl_div[fyl_old].classList.remove('checked');
+                }
+
+                fyl_div[fyl_random].classList.add('checked');
+                fyl_old = fyl_random;
+                fyl_i++;
+
+                if(fyl_i == 20) {
+                    clearInterval(fyl_timer);
+                    fyl_i = 0;
+                }
+            }
+        </script>
+    </body>
+</html>

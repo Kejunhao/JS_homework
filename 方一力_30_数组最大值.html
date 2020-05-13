@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力_30</title>
+    </head>
+    <body>
+        <span>Input array: </span>
+        <input type="text" placeholder="split use ','" onchange="cal(this.value)">
+        <span id="msg"></span>
+
+        <script>
+            function cal(fyl_array) {
+                let fyl_arr = fyl_array.split(",");
+                
+                document.querySelector('#msg').innerHTML = "<br />The larger number is: " + Math.max.apply(null, fyl_arr) + "<br />And the min number is : " + Math.min.apply(null, fyl_arr);
+            }
+        </script>
+    </body>
+</html>

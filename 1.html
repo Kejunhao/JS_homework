@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>28_大小字符转换</title>
+	</head>
+	<body>
+		<script>
+			function addDigits(num) {
+				let num_arr = String(num).split("");
+				let result = 0;
+				for(let i in num_arr) {
+					console.log(num_arr[i + 1]);
+					
+				}
+				return num_arr;
+			}
+			console.log(addDigits(38));
+
+			function odd(A) {
+				let odd_arr = [];
+				let even_arr = [];
+				let result = [];
+				for(let i in A) {
+					if(A[i] % 2 == 0) {
+						even_arr.push(A[i]);
+					}
+					if(A[i] % 2 != 0) {
+						odd_arr.push(A[i]);
+					}
+				}
+				for(let i = 0; i < A.length / 2; i++) {
+					result.push(even_arr[i]);
+					result.push(odd_arr[i]);
+				}
+				return result;
+			}
+			console.log(odd([4,2,5,7]));
+
+			function lookingRepeat(nums) {
+				let result = 0;
+				for(let i in nums) {
+					let temp = nums[i];
+					delete nums[i];
+					if(nums.includes(temp)) {
+						result = temp;
+						break;
+					}
+				}
+				return result;
+			}
+
+			function majorityElement(nums) {
+				
+			}
+			console.log(majorityElement([1, 2, 3, 2, 2, 2, 5, 4, 2]))
+
+			let test_arr = [];
+			console.log(typeof(test_arr));
+
+			var i = 24;
+			for(let i=0;i<10;++i){}
+			console.log(i);
+
+			function factorial(n) {  // 定义回调函数
+			if (n == 1) {
+			return 1;        // 递归出口
+			}
+			return n * factorial(n - 1);
+			}
+			console.log(factorial(4));
+		</script>
+	</body>
+</html>

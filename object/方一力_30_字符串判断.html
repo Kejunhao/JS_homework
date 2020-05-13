@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <span>Original Data:</span>
+    <br />
+    <textarea id="original" cols="27" rows="3">2,3,5</textarea>
+    <br />
+    <span>New Data:</span>
+    <span id="msg" style="color: red;"></span>
+    <br />
+    <input type="text" id="new">
+    <button type="button" id="btn">Check</button>
+
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+        let original = $('original').value;
+
+        let obj = {
+            judge : function() {
+                if(original.includes($('new').value)) {
+                    $('msg').innerHTML = $('new').value + " Already in the original data";
+                } else {
+                    $('msg').innerHTML = "";
+                    $('original').innerHTML = $('original').value + "," + $('new').value;
+                    $('new').value = "";
+                }
+            }
+        };
+        
+        $('btn').onclick = function() {
+            obj.judge();
+        }
+    </script>
+</body>
+</html>

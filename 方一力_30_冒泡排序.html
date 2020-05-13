@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <span>Input array:</span>
+        <input type="text" onchange="sort(this.value)">
+        <p id="msg"></p>
+
+        <script>
+            function sort(array_in) {
+                let fyl_array = array_in.split(",");
+                for(let i = 0; i < fyl_array.length; i++) {
+                    for(let j = 0; j < fyl_array.length - 1; j++) {
+                        if(fyl_array[j] > fyl_array[j + 1]) {
+                            let fyl_temp = fyl_array[j];
+                            fyl_array[j] = fyl_array[j + 1];
+                            fyl_array[j + 1] = fyl_temp;
+                        }
+                    }
+                }
+                document.getElementById("msg").innerHTML = fyl_array;
+            }
+        </script>
+    </body>
+</html>

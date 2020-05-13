@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <span>请输入数组的值:</span>
+        <input type="text" id="array"><br />
+        <span>请输入要检索的值:</span>
+        <input type="text" id="search" onchange="search()">
+        <p id="msg"></p>
+
+        <script>
+            function search() {
+                // let fyl_search_arr = ['a', 'b', 'c', 'c', 'd'];
+                // let fyl_search_str = 'c'; a,b,c,c,c,d
+                let fyl_search_arr = document.getElementById("array").value.split(',');
+                let fyl_search_str = document.getElementById("search").value;
+                let fyl_pro = [];
+
+                for(let i = 0; i < fyl_search_arr.length; i++) {
+                    if(fyl_search_arr[i] == fyl_search_str) {
+                        fyl_pro.push(i);
+                    }
+                }
+                document.querySelector("#msg").innerHTML = "该检索的值在数组中出现的位置为: " + fyl_pro;
+            }
+            
+        </script>
+    </body>
+</html>

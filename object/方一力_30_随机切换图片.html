@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <style>
+        body {
+            text-align: center;
+        }
+        img {
+            margin: 0 auto;
+        }
+    </style>
+
+    <p>Automatic change picture</p>
+    <img src="" id="auto">
+
+    <script>
+        const pic_arr = [
+            "../img/a1.gif",
+            "../img/a2.gif",
+            "../img/a3.gif",
+            "../img/a4.gif",
+            "../img/a5.gif"
+        ];
+        $('auto').src = pic_arr[0];
+
+        const Change = {
+            change_pic : function() {
+                setInterval(function() {
+                    $('auto').src = pic_arr[Math.floor(Math.random() * pic_arr.length)];
+                },1000);
+            }
+        };
+
+        Change.change_pic();
+
+        function $(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</body>
+</html>

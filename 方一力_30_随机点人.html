@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <p>恭喜
+            <span id="name" style="color: red;">**</span>
+            同学, 获得回答问题大礼包
+        </p>
+        <button type="button" onclick="randomTake()">随机选人</button>
+
+        <script>
+            const fyl_name_arr = ["张三","李四","王五","甲","乙","丙","丁", "烫烫烫", "罗翔", "欧尼酱"];
+            function randomTake() {
+                document.getElementById("name").innerHTML = fyl_name_arr[Math.floor(Math.random() * fyl_name_arr.length)];
+            }
+        </script>
+    </body>
+</html>

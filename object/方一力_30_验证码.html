@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>方一力30</title>
+</head>
+<body>
+    <style>
+        .box {
+            background-color: pink;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: 70px;
+            height: 25px;
+            text-align: center;
+        }
+    </style>
+    <p>Please input confirm number:</p>
+    <input type="text" id="string">
+    <span style="color: red;" id="msg"></span>
+    <div class="box" id="code"></div>
+    <button type="button" id="btn_confirm">Confirm</button>
+    <button type="button" id="btn_change">Change one</button>
+
+    <script>
+        function $(id) {
+            return document.getElementById(id);
+        }
+
+        //Set up code default string
+        const CODE_STRING = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split('');
+
+        const Code = {
+            //Get a num and generate a code. And set "code" to global variable
+            generate : function(code_length) {
+                code = "";
+                for(let i = 0; i < code_length; i++) {
+                    let random = Math.floor(Math.random() * CODE_STRING.length);
+                    code += CODE_STRING[random];
+                }
+                $('code').innerHTML = code;
+            },
+            judge : function() {
+                //Get the user input code. Convert to lower case
+                let user_input_code = ($('string').value).toLowerCase();
+                const MSG = $('msg');
+                let msg_content = "";
+
+                switch(user_input_code) {
+                    case "":
+                        msg_content = "The confirm code cannot be null. Please retry.";
+                        break;
+                    //Because user input code already convert to lower case, so the generate code is also
+                    case code.toLowerCase():
+                        msg_content = "Correct!";
+                        break;
+                    default:
+                        msg_content = "Confirm code is not right.";
+                        break;
+                }
+                MSG.innerHTML = msg_content;
+            }
+        }
+        Code.generate(4);
+
+        $('btn_confirm').onclick = function() {Code.judge();};
+        $('btn_change').onclick = function() {Code.generate(4);};
+    </script>
+</body>
+</html>

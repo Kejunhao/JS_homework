@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>方一力30</title>
+    </head>
+    <body>
+        <script>
+            let fyl_arr = [
+                ['a', 'b', 'c'],
+                ['d', 'e', 'f'],
+                ['g', 'h', 'i'],
+                ['j', 'k', 'l']
+            ];
+            let fyl_res = [];
+            for(let i = 0; i < fyl_arr[0].length; i++) {
+                fyl_res[i] = [];
+                for(let j = 0; j < fyl_arr.length; j++) {
+                    fyl_res[i][j] = fyl_arr[j][i];
+                }
+            }
+            console.group("转置前: ");
+            console.log(fyl_arr);
+            console.groupEnd();
+
+            console.group("转置后: ");
+            console.log(fyl_res);
+            console.groupEnd();
+        </script>
+    </body>
+</html>
